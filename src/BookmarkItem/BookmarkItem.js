@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import Rating from '../Rating/Rating';
 import BookmarksContext from '../BookmarksContext';
 import config from '../config';
-import './BookmarkItem.css';
+import { Link } from 'react-router-dom';
+// import './BookmarkItem.css';
 
 function deleteBookmarkRequest(bookmarkId, cb) {
   fetch(config.API_ENDPOINT + `/${bookmarkId}`, {
@@ -58,6 +59,13 @@ export default function BookmarkItem(props) {
             >
               Delete
             </button>
+          </div>
+          <div className='BookmarkItem__buttons'>
+            <Link to={`/edit/${props.id}`}
+              className='BookmarkItem__description'
+            >
+              Edit
+            </Link>
           </div>
         </li>
       )}
